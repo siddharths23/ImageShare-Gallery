@@ -1,2 +1,10 @@
-<h1>{{title}}</h1>
-<p>Hello {{ name }},Welcome to {{title}}</p>
+<html lang="en">
+
+  <body>
+    <div class="posts-container">
+     {{#each results}}
+        {{>card this}}
+      {{/each}}
+    </div>
+  </body>
+</html>

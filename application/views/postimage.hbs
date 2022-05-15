@@ -1,0 +1,31 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>postimage</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/postimage.css" />
+  </head>
+  <body>
+
+    <form
+      class="container input-form"
+      method="POST"
+      enctype="multipart/form-data"
+      action="/posts/createPost"
+    >
+      <label for="title" class="ilabel">Post title </label>
+      <input type="text" name="title" required />
+      <label for="Description" class="ilabel">Description </label>
+      <input type="text" class="des" name="description" required />
+      <label for="image" class="ilabel">Image </label>
+      <input type="file" class="im" name="uploadImage" required />
+
+      <a href="#" class="ilabel tos">Acceptable Use policy</a>
+      <input type="checkbox" class="box" />
+
+      <input type="submit" value="Submit" class="btn" />
+    </form>
+  </body>
+</html>

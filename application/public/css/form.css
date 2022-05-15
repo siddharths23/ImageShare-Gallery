@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body {
+  background: #e1e1e1;
+}
+header {
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 30px 40px;
+  text-align: left;
+  color: white;
+  letter-spacing: 1px;
+  font-size: 30px;
+  font: caption;
+}
+.links {
+  background-color: black;
+  margin: 0px;
+  overflow: hidden;
+}
+.links a {
+  text-decoration: none;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font: caption;
+  display: inline-block;
+  color: white;
+  padding: 20px 25px;
+}
+.links a:hover {
+  background: #ff9f1c;
+  color: black;
+}
+
+body {
+  background-color: rgb(241, 239, 239);
+}
+.container {
+  display: block;
+  margin-top: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  width: 400px;
+  height: 450px;
+  margin-left: 36.5%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(#0c0c0c, #1b1c1c);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  text-align: center;
+}
+.username {
+  color: white;
+  text-align: left;
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 30px;
+}
+.password {
+  color: white;
+  text-align: left;
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 30px;
+}
+.btn {
+  display: block;
+  width: 100px;
+  align-self: center;
+  background-color: rgb(170, 55, 55);
+  padding: 10px;
+  border-radius: 7px;
+  color: azure;
+  margin-top: 40px;
+}
+.btn:hover {
+  display: block;
+  width: 100px;
+  align-self: center;
+  background-color: rgb(59, 4, 4);
+  padding: 10px;
+  border-radius: 7px;
+  color: azure;
+}
+input {
+  align-self: center;
+  display: block;
+  height: 50px;
+  width: 90%;
+  border-radius: 5px;
+
+  padding: 0 10px;
+  margin-top: 10px;
+}
+::placeholder {
+  color: rgb(203, 205, 207);
+  font-size: 12px;
+  font-weight: bold;
+}
+.search {
+  display: block;
+  float: right;
+}
+.search-bar {
+  margin-top: 5px;
+  width: 500px;
+  display: inline-block;
+  border: 4px solid white;
+  border-right: none;
+  padding: 20px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: black;
+}
+#search-btn {
+  width: 150px;
+  color: azure;
+  line-height: 5px;
+  font-weight: 500;
+  background: #ff9f1c;
+  align-self: center;
+  padding: 20px;
+  height: 20px;
+}

@@ -1,0 +1,66 @@
+<html lang="en">
+
+  <body>
+
+    <div class="formregis">
+      <form
+        class="form"
+        id="form"
+        method="POST"
+        action="/users/register"
+        enctype="application/x-www-form-urlencoded"
+      >
+        <div class="input-control">
+          <label for="username" class="ilabel">Username </label>
+          <input
+            type="text"
+            required
+            name="username"
+            placeholder="Siddharths23"
+            id="username"
+          />
+
+        </div>
+
+        <div class="input-control">
+          <label for="email" class="ilabel">Email </label>
+          <input
+            type="text"
+            required
+            name="email"
+            placeholder="example@domain.com"
+            id="emailid"
+          />
+
+        </div>
+        <div class="input-control">
+          <label for="password" class="ilabel">Password </label>
+          <input
+            type="password"
+            required
+            name="password"
+            placeholder="....."
+            id="passwords"
+          />
+
+        </div>
+        <div class="input-control">
+          <label for="password" class="ilabel"> Confirm Password </label>
+          <input
+            type="password"
+            required
+            name="cpassword"
+            placeholder="....."
+            id="cpasswords"
+          />
+
+        </div>
+        <label for="age" class="ilabel"> Are you 13+ years of age</label>
+        <input type="checkbox" required /><br />
+        <a href="#" class="ilabel" id="tos">TOS and Privacy rules</a>
+        <input type="checkbox" required /><br />
+        <input type="submit" value="Submit" class="btn" id="submit" />
+      </form>
+    </div>
+  </body>
+</html>

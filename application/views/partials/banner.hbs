@@ -1,0 +1,29 @@
+<header>
+  <div class="heading">
+    <h1>PicShare Gallery</h1>
+  </div>
+</header>
+<div class="nav-bar">
+  <div class="links">
+    <a href="/" rel="home" class="link">Home</a>
+    <a href="/postimage" rel="Post Image" class="link">Post Image</a>
+    <a href="/registration" rel="regstration" class="link">Registration</a>
+    <a href="/viewpost" rel="View Post" class="link">View Post</a>
+    {{#if logged}}
+      <a id="logout-button" rel="logout" class="link">Log Out</a>
+    {{else}}
+      <a href="/login" rel="login" class="link">Log In</a>
+    {{/if}}
+    <div class="search">
+      <input
+        type="text"
+        name="search-text"
+        id="search-text"
+        placeholder="Type to search"
+        class="search-bar"
+      />
+      <button id="search-btn" type="button">SEARCH</button>
+
+    </div>
+  </div>
+</div>

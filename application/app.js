@@ -1,13 +1,16 @@
 const createError = require("http-errors");
 const express = require("express");
-const favicon = require('serve-favicon');
+const favicon = require("serve-favicon");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const handlebars = require("express-handlebars");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
-
+const postsRouter = require("./routes/posts");
+var sessions = require("express-session");
+var mysqlsession = require("express-mysql-session")(sessions);
+var flash = require("express-flash");
 const app = express();
 
 app.engine(
@@ -17,35 +20,61 @@ app.engine(
     partialsDir: path.join(__dirname, "views/partials"), // where to look for partials
     extname: ".hbs", //expected file extension for handlebars files
     defaultLayout: "layout", //default layout for app, general template for all pages in app
-    helpers: {}, //adding new helpers to handlebars for extra functionality
+    helpers: {
+      emptyObject: (obj) => {
+        return !(obj.constructor === Object && Object.keys(obj).length == 0);
+      },
+    }, //adding new helpers to handlebars for extra functionality
   })
 );
 
+var mysqlSessionStore = new mysqlsession(
+  {
+    /*using default options*/
+  },
+  require("./config/database")
+);
+
 // view engine setup
+app.use(
+  sessions({
+    key: "csid",
+    secret: "this is secret from csc317",
+    store: mysqlSessionStore,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+app.use(flash());
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
-
 
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(__dirname + "/public/favicon.ico"));
 app.use("/public", express.static(path.join(__dirname, "public")));
-
+app.use((req, res, next) => {
+  console.log(req.session);
+  if (req.session.username) {
+    res.locals.logged = true;
+  }
+  next();
+});
 app.use("/", indexRouter); // route middleware from ./routes/index.js
 app.use("/users", usersRouter); // route middleware from ./routes/users.js
-
-
+app.use("/posts", postsRouter);
 /**
- * Catch all route, if we get to here then the 
+ * Catch all route, if we get to here then the
  * resource requested could not be found.
  */
-app.use((req,res,next) => {
-  next(createError(404, `The route ${req.method} : ${req.url} does not exist.`));
-})
-  
+app.use((req, res, next) => {
+  next(
+    createError(404, `The route ${req.method} : ${req.url} does not exist.`)
+  );
+});
 
 /**
  * Error Handler, used to render the error html file
