@@ -88,11 +88,13 @@ header {
 }
 .card {
   display: grid;
-  grid-template-rows: 180px 150px;
+  grid-template-rows: 200px 280px;
+  gap: 22px;
   grid-template-columns: auto;
-  border: 0.0625rem solid #cccccccc;
-  border-radius: 0.25rem;
+  border: 0.0625rem solid #222222cc;
+  border-radius: 2rem;
   box-shadow: 0 2px 2px #dfdede;
+  overflow: hidden;
 }
 .card-image {
   grid-area: 1 /1 / 2/ 2;
@@ -110,12 +112,29 @@ div[class="card"] > img {
 .card-body {
   grid-area: 2 / 1/ 3/ 2;
   padding: 0.75rem;
-  background-color: #232f3e;
+  background-color: rgb(16, 15, 15);
   border-radius: 0 0 0.2rem 0.2rem;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+.card:hover {
+  transform: translateY(-1.2rem);
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
 }
 div[class="card-body"] > a[class="card-button"] {
   text-decoration: none;
 }
 .card-text {
   color: white;
+}
+.anchor-buttons {
+  padding: 0 5px;
+  font-size: 25px;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid white;
+  color: white;
+}
+.anchor-buttons:hover {
+  background-color: #e28707;
 }

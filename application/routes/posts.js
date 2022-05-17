@@ -63,5 +63,43 @@ router.post("/createPost", uploader.single("uploadImage"), (req, res, next) => {
       }
     });
 });
+router.get("/search", (req, res, next) => {
+  let searchTerm = req.query.search;
+  if (!searchTerm) {
+    res.send({
+      resultsStatus: "info",
+      message: "No search term given",
+      results: [],
+    });
+  } else {
+    let baseSQL =
+      "SELECT id, title, description, thumbnail, concat_ws(' ', title, description) AS haystack \
+    FROM posts \
+    HAVING haystack like ?;";
+    let sqlReadySearchTerm = "%" + searchTerm + "%";
+    db.execute(baseSQL, [sqlReadySearchTerm])
+      .then(([results, fields]) => {
+        if (results && results.length) {
+          res.send({
+            resultsStatus: "info",
+            message: `${results.length} results found`,
+            results: results,
+          });
+        } else {
+          db.query(
+            "select id, title, description, thumbnail, created FROM posts ORDER BY created DESC LIMIT 8;",
+            []
+          ).then(([results, fields]) => {
+            res.send({
+              resultsStatus: "info",
+              message: "No results found, here are the 8 recent posts",
+              results: results,
+            });
+          });
+        }
+      })
+      .catch((err) => next(err));
+  }
+});
 
 module.exports = router;

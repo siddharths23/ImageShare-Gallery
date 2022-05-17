@@ -1,0 +1,33 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>imagepost</title>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="/application/public/css/imagepost.css"
+  />
+</head>
+<div id="post-container">
+  <img id="image-post-image" src="/{{currentPost.photopath}}" />
+  <div id="info-message-grid">
+    <div id="info">
+      <header id="image-post-title">
+        <h2 id="image-post-title-text">{{currentPost.title}}</h2>
+
+      </header>
+      <div
+        id="image-post-author"
+        class="info-tags"
+      >{{currentPost.username}}</div>
+      <div id="image-post-date" class="info-tags">{{currentPost.created}}</div>
+      <div
+        id="image-post-desc"
+        class="info-tags"
+      >{{currentPost.description}}</div>
+
+    </div>
+  </div>
+</div>
