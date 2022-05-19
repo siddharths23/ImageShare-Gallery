@@ -81,8 +81,10 @@ header {
 }
 .posts-container {
   padding-top: 30px;
+  padding-left: 50px;
+  padding-right: 50px;
   display: grid;
-  grid-template-rows: 500px 500px;
+  grid-template-rows: 400px 400px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px 10px;
 }
@@ -116,6 +118,7 @@ div[class="card"] > img {
   border-radius: 0 0 0.2rem 0.2rem;
   margin-bottom: 5px;
   font-size: 15px;
+  text-align: center;
 }
 .card:hover {
   transform: translateY(-1.2rem);
@@ -128,7 +131,7 @@ div[class="card-body"] > a[class="card-button"] {
   color: white;
 }
 .anchor-buttons {
-  padding: 0 5px;
+  padding: 4px 10px;
   font-size: 25px;
   text-decoration: none;
   border-radius: 0.5rem;
@@ -136,5 +139,6 @@ div[class="card-body"] > a[class="card-button"] {
   color: white;
 }
 .anchor-buttons:hover {
-  background-color: #e28707;
+  background-color: #ed8a00;
+  color: black;
 }
