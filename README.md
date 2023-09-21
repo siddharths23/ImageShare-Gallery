@@ -1,7 +1,4 @@
-# CSC 317 Term Project
-
-Demonstration
-https://youtu.be/Kvd8rruP1i0
+#Mern stack website project
 
 # Build/Run Instructions
 
